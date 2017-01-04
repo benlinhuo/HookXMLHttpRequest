@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest hook Demo</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=no"/>
+    <meta name="keywords" content="Ajax hook Demo">
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="../javascripts/hook-XMLHttpRequest.js"></script>
+    <script src="../javascripts/log-XMLHttpRequest.js"></script>
+</head>
+<body>
+如果想要查看 hook 的结果，请看 Console 面板
+<script>
+
+    $.get('interface.html').done(function(d){
+    	console.log('sdfsdfsdfsd');
+        console.log(d.substr(0,30)+"...")
+        //测试下，恢复原来的 XMLHttpRequest
+        unHookXMLHttpRequest()
+        console.log('####################################################');
+        console.log("unhook")
+        $.get('interface.html').done(function(d){
+            console.log(d.substr(0,10))
+        })
+
+    })
+
+</script>
+</body>
+</html>

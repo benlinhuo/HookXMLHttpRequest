@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest hook Demo</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=no"/>
+    <meta name="keywords" content="Ajax hook Demo">
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script> -->
+    <script src="../javascripts/vue-resource.js"></script>
+    <script src="../javascripts/hook-XMLHttpRequest.js"></script>
+    <script src="../javascripts/log-XMLHttpRequest.js"></script>
+</head>
+<body>
+如果想要查看 hook 的结果，请看 Console 面板
+<script>
+
+   	Vue.http.get('interface.html').then((response) => {
+    	// success
+    	console.log('sdfsdfsdfsd');
+        console.log(d.substr(0,30)+"...")
+        //测试下，恢复原来的 XMLHttpRequest
+        // unHookXMLHttpRequest()
+        console.log('####################################################');
+        console.log("unhook")
+
+    }, (response) => {
+    	// error
+    	console.log('API request error!!!');
+
+    });
+   
+
+
+</script>
+</body>
+</html>
